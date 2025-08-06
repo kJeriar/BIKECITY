@@ -1,7 +1,9 @@
 class BikeUnavailableError(Exception):
-    #se muestra si la bici esta busy
-    pass
+    def __init__(self, mensaje):
+        self.mensaje = mensaje
+        super().__init__(self.mensaje)
 
 class InvalidReservationError(Exception):
-    #se muestra si las fechas no son compatibles
-    pass
+    def __init__(self, mensaje):
+        self.mensaje = mensaje
+        super().__init__(self.mensaje)
