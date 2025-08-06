@@ -1,0 +1,85 @@
+Grupo 4
+Bicityme
+5 de agosto de 2025
+Contexto
+Tres amigos han creado un emprendimiento llamado "BIKECITY", un servicio de renta de bicicletas urbanas. Los clientes deben llamar o enviar mensajes a los dueños para reservar una bicicleta, pero el sistema manual que utilizan ha generado los siguientes problemas:
+Reservas duplicadas por falta de sincronización entre los socios.
+Clientes que no recogen las bicicletas reservadas, generando pérdidas.
+Cobros incorrectos debido a errores en los cálculos manuales.
+Falta de registro sobre las bicicletas disponibles y su estado.
+Solución
+Se necesita desarrollar un sistema automatizado que permita:
+Registrar bicicletas disponibles para renta.
+Gestionar reservas evitando conflictos de horario.
+Aplicar cobros correctos según la duración del uso.
+Controlar el estado de cada bicicleta para evitar pérdidas o mal uso.
+Requerimiento
+Paso 1: Conceptualización y Análisis 
+Cada equipo debe investigar y responder en un documento las siguientes preguntas:
+¿Qué es una excepción en programación y por qué es importante manejarla correctamente?
+Una excepción en programación es un evento que ocurre durante la ejecución de un programa y que interrumpe su flujo normal porque surge un error o una situación inesperada (por ejemplo: dividir entre cero, intentar abrir un archivo inexistente o ingresar un dato no válido).
+
+Manejar correctamente las excepciones es importante porque:
+Evita que el programa se detenga abruptamente. Permite reaccionar ante los errores y continuar la ejecución.
+Facilita la detección y solución de problemas. Ayuda a identificar dónde y por qué ocurrió el fallo.
+Mejora la experiencia del usuario. En lugar de mostrar mensajes técnicos, se pueden entregar avisos claros o alternativas de acción.
+Aumenta la seguridad y confiabilidad del sistema. Previene comportamientos inesperados que podrían comprometer los datos o el funcionamiento del programa.
+¿Cuáles son los tipos de excepciones más comunes?
+Existen varios tipos de excepciones que se lanzan cuando ocurre un error. Algunas de las más comunes son:
+ValueError
+Ocurre cuando el tipo de dato es correcto, pero el valor no es válido.
+Ejemplo: int("hola") (intenta convertir un texto no numérico a número).
+TypeError
+Se produce cuando se realiza una operación sobre un tipo de dato no compatible.
+Ejemplo: "texto" + 5 (no se puede sumar un string y un número).
+ZeroDivisionError
+Ocurre al intentar dividir un número entre cero.
+Ejemplo: 10 / 0.
+IndexError
+Se lanza cuando se intenta acceder a una posición inexistente en una lista.
+Ejemplo: lista[10] cuando la lista solo tiene 5 elementos.
+KeyError
+Aparece al intentar acceder a una clave inexistente en un diccionario.
+Ejemplo: diccionario["clave_inexistente"].
+FileNotFoundError
+Ocurre cuando se intenta abrir un archivo que no existe.
+Ejemplo: open("archivo.txt") cuando el archivo no está en la ruta.
+Exception
+Es la excepción genérica que puede capturar cualquier tipo de error no específico.
+¿Cómo funciona la sentencia try/except y cuándo se debe utilizar?
+La sentencia try/except permite ejecutar código que puede generar errores y definir cómo manejar esos errores si ocurren. Se debe utilizar cuando se realiza una operación propensa a fallar, como acceso a archivos, conexiones de red, operaciones matemáticas delicadas, etc.
+Un ejemplo de su implementacion seria:
+
+
+
+¿Cómo se pueden capturar múltiples excepciones en un solo bloque de código?
+Se pueden capturar varias excepciones usando una tupla en el bloque except, o varios bloques except por separado:
+
+¿Qué es el uso de raise en Python y cómo se utiliza para generar excepciones en validaciones?
+	raise permite lanzar (forzar) una excepción manualmente:
+ejemplo
+def reservar(hora):
+    if hora < 0 or hora > 24:
+        raise ValueError("La hora debe estar entre 0 y 24")
+
+Se usa para validar reglas o evitar datos incorrectos.
+
+¿Cómo se pueden definir excepciones personalizadas y en qué casos sería útil?
+	class ReservaDuplicadaError(Exception):
+    		pass
+	Son útiles cuando queremos identificar y manejar errores propios del sistema, como conflictos de reserva o bicicletas no disponibles.
+¿Cuál es la función de finally en el manejo de excepciones?
+El bloque finally se utiliza para liberar recursos, como cerrar archivos o conexiones a bases de datos. Este bloque siempre se ejecuta, sin importar si el bloque try generó un error o no, garantizando que se realicen las acciones necesarias para mantener el código limpio
+
+¿Cuáles son algunas acciones de limpieza que deben ejecutarse después de un proceso que puede generar errores?
+Después de un proceso que puede tener errores, es importante hacer limpieza para que el programa siga funcionando sin problemas. Algunas acciones son:
+Cerrar archivos abiertos para liberar recursos.
+Cerrar conexiones a bases de datos para evitar bloqueos.
+Eliminar archivos temporales generados durante el proceso.
+Liberar memoria utilizada por el programa.
+Restablecer variables o estados internos a valores seguros.
+Registrar mensajes o logs que indiquen el fin del proceso.
+Python facilita estas tareas mediante el uso de la declaración with, que garantiza el cierre automático de archivos u otros recursos incluso si ocurre una excepción, evitando así la necesidad de un bloque finally explícito para la limpieza.
+
+
+.
